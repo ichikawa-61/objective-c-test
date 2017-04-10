@@ -9,14 +9,47 @@
 #import "CalendarViewController.h"
 #import "DayCell.h"
 
-@interface CalendarViewController ()
 
-@property (nonatomic,strong) NSArray *weekDays;
+@implementation NSDate (Extension)
+
+
+- (NSDate *)monthAgoDate{
+    
+    
+    NSInteger addValue = -1;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.month = addValue;
+    return [calendar dateByAddingComponents:dateComponents toDate:self options:0];
+}
+
+
+
+
+
+- (NSDate *)monthLaterDate{
+    
+    NSInteger addValue = 1;
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComponents = [NSDateComponents new];
+    dateComponents.month = addValue;
+    return [calendar dateByAddingComponents:dateComponents toDate:self options:0];
+}
 
 @end
 
-@implementation CalendarViewController
+@interface CalendarViewController (){
 
+    NSInteger numberOfItems;
+    NSInteger numberOfWeeks;
+
+}
+
+@property (nonatomic,strong) NSArray *weekDays;
+@property (nonatomic,strong) NSDate *prevMonth;
+@end
+
+@implementation CalendarViewController
 
 
 static NSUInteger const DaysPerWeek = 7;
@@ -27,34 +60,42 @@ static CGFloat const CellMargin = 2.0f;
     
     
     //今日の日付
-    self.today = [NSDate date];
+    self.showdMonth = [NSDate date];
     //ヘッダー
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    formatter.dateFormat = @"yyyy年MM月";
-    self.title = [formatter stringFromDate:self.today];
     
-    self.weekDays = @[@"日",@"月",@"火",@"水",@"木",@"金",@"土"];
+    
+    NSDateFormatter* dayFormat = [[NSDateFormatter alloc] init];
+    dayFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
+    NSArray *monthName = dayFormat.shortWeekdaySymbols;
+    self.weekDays = monthName;
 
     
-     [self firstDateOfMonth];
+    [self getTitleOfController];
+    [self firstDateOfMonth];
     
     UINib *nib = [UINib nibWithNibName:@"DayCell" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"Cell"];
     
 }
 
+-(void)getTitleOfController{
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"yyyy年MM月";
+    self.title = [formatter stringFromDate:self.showdMonth];
+
+}
 
 
 
-
-- (NSDate *)firstDateOfMonth
-{
+- (NSDate *)firstDateOfMonth{
     
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay  fromDate:self.today];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay
+     fromDate:self.showdMonth];
     
-
     //今日の日付になっているので、月の最初の日付を指定
     components.day = 1;
+    
     
     
     NSDate *firstDateMonth = [[NSCalendar currentCalendar] dateFromComponents:components];
@@ -64,8 +105,7 @@ static CGFloat const CellMargin = 2.0f;
 
 
 
-- (NSDate *)dateForCellAtIndexPath:(NSIndexPath *)indexPath
-{
+- (NSDate *)dateForCellAtIndexPath:(NSIndexPath *)indexPath{
  
     NSInteger ordinalityOfFirstDay = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay
                                                                              inUnit:NSCalendarUnitWeekOfMonth
@@ -78,9 +118,10 @@ static CGFloat const CellMargin = 2.0f;
     NSDate *date = [[NSCalendar currentCalendar] dateByAddingComponents:dateComponents
                                                                  toDate:[self firstDateOfMonth]
                                                                 options:0];
-   
     return date;
 }
+
+
 
 
 
@@ -102,16 +143,15 @@ static CGFloat const CellMargin = 2.0f;
         
         return 7;
     }else{
-    NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth
-                                                              inUnit:NSCalendarUnitMonth
-                                                             forDate:self.firstDateOfMonth];
-    NSUInteger numberOfWeeks = rangeOfWeeks.length;
-    
-    //6行7列で表示
-    NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
-    
-    
-    return numberOfItems;
+        NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth
+                                                                  inUnit:NSCalendarUnitMonth
+                                                                 forDate:self.firstDateOfMonth];
+        numberOfWeeks = rangeOfWeeks.length;
+        numberOfItems = numberOfWeeks * DaysPerWeek;
+        
+       
+        return numberOfItems;
+
     }
     
 }
@@ -136,14 +176,27 @@ static CGFloat const CellMargin = 2.0f;
     
     }
     
-    if(indexPath.row %7 == Sunday){
+    if((indexPath.row+1)%7 == Sunday){
     
         cell.dayLabel.textColor = [UIColor redColor];
-    }else if(indexPath.row %7 == Saturday){
+    }else if((indexPath.row+1)%7 == Saturday){
     
         cell.dayLabel.textColor = [UIColor blueColor];
         
     }
+    
+    if(indexPath.row < DaysPerWeek -1){
+    
+        cell.dayLabel.textColor = [UIColor yellowColor];
+    }else if (indexPath.row < DaysPerWeek + numberOfWeeks -1){
+    
+       
+    
+    }else if(indexPath.row < numberOfItems){
+    
+         cell.dayLabel.textColor = [UIColor yellowColor];
+    }
+    
     
     
     return cell;
@@ -153,10 +206,10 @@ static CGFloat const CellMargin = 2.0f;
 
 
 
-#pragma mark - UICollectionViewDelegateFlowLayout methods
+#pragma mark - UICollectionViewDelegate methods
 
 
-//セルの大きさ=>高さを幅の1.5倍　セル同士の間隔は定数で2.0f
+//セルの大きさ=>高さを幅の1.5倍　セル同士の間隔は定数で2.0f　6行7列で表示させる
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger numberOfMargin = 8;
@@ -181,10 +234,32 @@ static CGFloat const CellMargin = 2.0f;
     return CellMargin;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if ([indexPath isEqual:[NSIndexPath indexPathForRow:3 inSection:1]]){
+        ;
+    }
+    NSLog(@"選択したのは%ld",indexPath.row);
+
+}
 
 
 
 
+- (IBAction)gotToNextMonth:(id)sender {
+    
+    self.showdMonth = [self.showdMonth monthLaterDate];
+    
+    [self getTitleOfController];
+    [self.collectionView reloadData];
+}
 
+- (IBAction)goToLastMonth:(id)sender {
+    
+    self.showdMonth = [self.showdMonth monthAgoDate];
+    
+    [self getTitleOfController];
+    [self.collectionView reloadData];
 
+}
 @end

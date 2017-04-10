@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-N5-DBu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="578"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uEq-pb-0yH">
@@ -46,6 +46,22 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SZc-L6-Nu3"/>
                                 </connections>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orn-dn-4sb">
+                                <rect key="frame" x="312" y="629" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="次へ&gt;&gt;"/>
+                                <connections>
+                                    <action selector="gotToNextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Kh-El-cRb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z6-u8-kDt">
+                                <rect key="frame" x="15" y="629" width="50" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="&lt;&lt;前へ"/>
+                                <connections>
+                                    <action selector="goToLastMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eZW-HJ-cT5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>

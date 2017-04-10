@@ -24,28 +24,38 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/CalendarViewController.m"
-            timestampString = "513491918.254508"
+            timestampString = "513509052.267856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "-dateForCellAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/CalendarViewController.m"
-            timestampString = "513491918.254508"
+            timestampString = "513509052.267856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
-            landmarkName = "-viewDidLoad"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -56,12 +66,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/CalendarViewController.m"
-            timestampString = "513491918.254508"
+            timestampString = "513509052.267856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "-collectionView:numberOfItemsInSection:"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "-numberOfSectionsInCollectionView:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -72,43 +82,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Calendar/CalendarViewController.m"
-            timestampString = "513491918.254508"
+            timestampString = "513509052.267856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
-            landmarkName = "-collectionView:numberOfItemsInSection:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/CalendarViewController.m"
-            timestampString = "513491918.254508"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-firstDateOfMonth"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Calendar/CalendarViewController.m"
-            timestampString = "513491918.254508"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "-collectionView:numberOfItemsInSection:"
             landmarkType = "7">
          </BreakpointContent>

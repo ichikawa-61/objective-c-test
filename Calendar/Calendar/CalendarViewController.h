@@ -10,18 +10,22 @@
 
 @interface CalendarViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
 
-@property (nonatomic,strong) NSDate *today;
+@property (nonatomic,strong) NSDate *showdMonth;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+- (IBAction)gotToNextMonth:(id)sender;
+
+- (IBAction)goToLastMonth:(id)sender;
 
 typedef NS_ENUM(NSInteger, DaysOfTheWeek){
     
+    Saturday,
     Sunday,
     Monday,
     Tuesday,
     Wednesday,
     Thursday,
-    Friday,
-    Saturday
+    Friday
+    
     
     
     

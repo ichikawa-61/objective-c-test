@@ -21,7 +21,6 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kU4-r9-X6R">
                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" red="1" green="0.94237662792151389" blue="0.44843774165367722" alpha="1" colorSpace="calibratedRGB"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
