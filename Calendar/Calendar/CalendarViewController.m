@@ -21,7 +21,12 @@ static CGFloat const CellMargin = 2.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-     self.today = [NSDate date];
+    self.today = [NSDate date];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+    formatter.dateFormat = @"yyyy年MM月";
+    self.title = [formatter stringFromDate:self.today];
+
     
      [self firstDateOfMonth];
     
