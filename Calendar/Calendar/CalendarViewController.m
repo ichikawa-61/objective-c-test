@@ -15,7 +15,8 @@
 
 @implementation CalendarViewController
 
-
+static NSUInteger const DaysPerWeek = 7;
+static CGFloat const CellMargin = 2.0f;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -36,6 +37,11 @@
 {
     
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.today];
+    
+
+    //今日の日付になっているので、月の最初の日付を指定
+    components.day = 1;
+    
     
     NSDate *firstDateMonth = [[NSCalendar currentCalendar] dateFromComponents:components];
     
@@ -70,7 +76,21 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
-    return 35;
+    NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth
+                                                              inUnit:NSCalendarUnitMonth
+                                                             forDate:self.firstDateOfMonth];
+    NSUInteger numberOfWeeks = rangeOfWeeks.length;
+    
+    //6行7列で表示
+    NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
+    
+    
+    
+    NSLog(@"%ld",numberOfWeeks);
+    NSLog(@"%ld",numberOfItems);
+    
+    
+    return numberOfItems;
     
 }
 
@@ -90,6 +110,37 @@
     
     
 }
+
+
+
+#pragma mark - UICollectionViewDelegateFlowLayout methods
+
+
+//セルの大きさ=>高さを幅の1.5倍　セル同士の間隔は定数で2.0f
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger numberOfMargin = 8;
+    CGFloat width = floorf((collectionView.frame.size.width - CellMargin * numberOfMargin) / DaysPerWeek);
+    CGFloat height = width * 1.5f;
+    
+    return CGSizeMake(width, height);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(CellMargin, CellMargin, CellMargin, CellMargin);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return CellMargin;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return CellMargin;
+}
+
 
 
 
