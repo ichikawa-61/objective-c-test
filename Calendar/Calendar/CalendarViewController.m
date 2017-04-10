@@ -11,9 +11,13 @@
 
 @interface CalendarViewController ()
 
+@property (nonatomic,strong) NSArray *weekDays;
+
 @end
 
 @implementation CalendarViewController
+
+
 
 static NSUInteger const DaysPerWeek = 7;
 static CGFloat const CellMargin = 2.0f;
@@ -21,17 +25,22 @@ static CGFloat const CellMargin = 2.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.today = [NSDate date];
     
+    //今日の日付
+    self.today = [NSDate date];
+    //ヘッダー
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     formatter.dateFormat = @"yyyy年MM月";
     self.title = [formatter stringFromDate:self.today];
+    
+    self.weekDays = @[@"日",@"月",@"火",@"水",@"木",@"金",@"土"];
 
     
      [self firstDateOfMonth];
     
     UINib *nib = [UINib nibWithNibName:@"DayCell" bundle:nil];
     [self.collectionView registerNib:nib forCellWithReuseIdentifier:@"Cell"];
+    
 }
 
 
@@ -41,7 +50,7 @@ static CGFloat const CellMargin = 2.0f;
 - (NSDate *)firstDateOfMonth
 {
     
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.today];
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay  fromDate:self.today];
     
 
     //今日の日付になっているので、月の最初の日付を指定
@@ -75,12 +84,24 @@ static CGFloat const CellMargin = 2.0f;
 
 
 
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    
+    
+    return 2;
+}
 
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     
+    
+    if(section == 0 ){
+        
+        return 7;
+    }else{
     NSRange rangeOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth
                                                               inUnit:NSCalendarUnitMonth
                                                              forDate:self.firstDateOfMonth];
@@ -90,12 +111,8 @@ static CGFloat const CellMargin = 2.0f;
     NSInteger numberOfItems = numberOfWeeks * DaysPerWeek;
     
     
-    
-    NSLog(@"%ld",numberOfWeeks);
-    NSLog(@"%ld",numberOfItems);
-    
-    
     return numberOfItems;
+    }
     
 }
 
@@ -104,12 +121,20 @@ static CGFloat const CellMargin = 2.0f;
 {
     DayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    formatter.dateFormat = @"d";
-    cell.dayLabel.textAlignment = NSTextAlignmentCenter;
-    cell.dayLabel.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
+    if(indexPath.section == 0){
+        
+        cell.dayLabel.text = self.weekDays[indexPath.row];
+        
+        
     
+    }else{
     
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        formatter.dateFormat = @"d";
+        cell.dayLabel.textAlignment = NSTextAlignmentCenter;
+        cell.dayLabel.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
+    
+    }
     
     return cell;
     
