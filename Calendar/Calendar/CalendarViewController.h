@@ -9,10 +9,22 @@
 #import <UIKit/UIKit.h>
 
 @interface CalendarViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
-//@property (nonatomic,strong) NSDate *thisMonth;
+
 @property (nonatomic,strong) NSDate *today;
-//@property (nonatomic,strong) NSDate *days;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
+typedef NS_ENUM(NSInteger, DaysOfTheWeek){
+    
+    Sunday,
+    Monday,
+    Tuesday,
+    Wednesday,
+    Thursday,
+    Friday,
+    Saturday
+    
+    
+    
+};
 @end
 

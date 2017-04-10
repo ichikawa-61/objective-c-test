@@ -121,11 +121,11 @@ static CGFloat const CellMargin = 2.0f;
 {
     DayCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     
+    
     if(indexPath.section == 0){
         
+        cell.dayLabel.textAlignment = NSTextAlignmentCenter;
         cell.dayLabel.text = self.weekDays[indexPath.row];
-        
-        
     
     }else{
     
@@ -135,6 +135,16 @@ static CGFloat const CellMargin = 2.0f;
         cell.dayLabel.text = [formatter stringFromDate:[self dateForCellAtIndexPath:indexPath]];
     
     }
+    
+    if(indexPath.row %7 == Sunday){
+    
+        cell.dayLabel.textColor = [UIColor redColor];
+    }else if(indexPath.row %7 == Saturday){
+    
+        cell.dayLabel.textColor = [UIColor blueColor];
+        
+    }
+    
     
     return cell;
     
