@@ -7,28 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalendarLogic.h"
 
-@interface CalendarViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate>
+@interface CalendarViewController : UIViewController<UICollectionViewDelegate>
 
-@property (nonatomic,strong) NSDate *showdMonth;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-- (IBAction)gotToNextMonth:(id)sender;
 
+- (IBAction)goToNextMonth:(id)sender;
 - (IBAction)goToLastMonth:(id)sender;
 
-typedef NS_ENUM(NSInteger, DaysOfTheWeek){
-    
-    Saturday,
-    Sunday,
-    Monday,
-    Tuesday,
-    Wednesday,
-    Thursday,
-    Friday
-    
-    
-    
-    
-};
 @end
 

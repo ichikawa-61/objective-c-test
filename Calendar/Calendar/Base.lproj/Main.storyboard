@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,10 +22,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-N5-DBu">
-                                <rect key="frame" x="0.0" y="20" width="375" height="578"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bgz-oY-8ef">
+                                <rect key="frame" x="31" y="72" width="344" height="551"/>
+                            </stackView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spS-ho-rGT">
+                                <rect key="frame" x="0.0" y="623" width="377" height="44"/>
+                                <items>
+                                    <barButtonItem title="&lt;&lt;前へ" id="JRc-zI-TMY">
+                                        <connections>
+                                            <action selector="goToLastMonth:" destination="BYZ-38-t0r" id="ggj-7h-2UH"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem systemItem="flexibleSpace" id="OLu-6x-nwZ"/>
+                                    <barButtonItem title="次へ&gt;&gt;" id="St0-De-q4b">
+                                        <connections>
+                                            <action selector="goToNextMonth:" destination="BYZ-38-t0r" id="qbr-bs-997"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-N5-DBu">
+                                <rect key="frame" x="20" y="72" width="339" height="587"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="551" id="bdg-cf-PA5"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uEq-pb-0yH">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -46,33 +68,25 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="SZc-L6-Nu3"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Orn-dn-4sb">
-                                <rect key="frame" x="312" y="629" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="次へ&gt;&gt;"/>
-                                <connections>
-                                    <action selector="gotToNextMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Kh-El-cRb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Z6-u8-kDt">
-                                <rect key="frame" x="15" y="629" width="50" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="&lt;&lt;前へ"/>
-                                <connections>
-                                    <action selector="goToLastMonth:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eZW-HJ-cT5"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="bgz-oY-8ef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="4Mh-rb-Klj"/>
+                            <constraint firstItem="bgz-oY-8ef" firstAttribute="bottom" secondItem="spS-ho-rGT" secondAttribute="top" id="Wd8-Ug-pYg"/>
+                            <constraint firstAttribute="bottom" secondItem="bgz-oY-8ef" secondAttribute="bottom" constant="44" id="j8m-3A-LFH"/>
+                            <constraint firstAttribute="trailing" secondItem="bgz-oY-8ef" secondAttribute="trailing" id="nPo-tQ-eMh"/>
+                            <constraint firstItem="bgz-oY-8ef" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="w9D-fn-ixj"/>
+                            <constraint firstItem="bgz-oY-8ef" firstAttribute="top" secondItem="3n3-N5-DBu" secondAttribute="top" id="xiJ-A9-ls0"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="2Tm-cS-J8m"/>
+                    <navigationItem key="navigationItem" id="jdG-Hp-vW6"/>
                     <connections>
                         <outlet property="collectionView" destination="3n3-N5-DBu" id="g5F-HN-XQE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1079.2" y="123.68815592203899"/>
+            <point key="canvasLocation" x="1074.4000000000001" y="120.98950524737631"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Wjg-ey-hi7">
