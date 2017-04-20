@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+
+//Model
 #import "CalendarLogic.h"
 @interface DayCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *dayLabel;
@@ -15,6 +17,5 @@
 -(void)setUpWithCalendar:(CalendarLogic*)calendarLogic Row:(NSInteger)row;
 -(void)setUpDaysOfWeek:(NSInteger)row;
 -(void)getWeekOfDays;
-
 
 @end

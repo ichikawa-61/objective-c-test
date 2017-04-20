@@ -21,8 +21,7 @@ static NSUInteger const DaysPerWeek = 7;
     NSDate *today = [calendar dateFromComponents:components];
     
     return today;
-    
-    
+        
 }
 
 +(NSArray<CalendarLogic *> *)calendarWithDate:(NSDate *)date{
@@ -33,16 +32,10 @@ static NSUInteger const DaysPerWeek = 7;
     components.day = 1;
     
     NSDate *firstDateOfMonth = [[NSCalendar currentCalendar] dateFromComponents:components];
-    
-    
     NSInteger numberOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:firstDateOfMonth].length;
     
-    
     NSInteger numberOfDaysInMonth = numberOfWeeks * DaysPerWeek;
-    
-    NSLog(@"ギギギg%ld",numberOfDaysInMonth);
     NSMutableArray *calendars = [@[] mutableCopy];
-    
     
     //restOfTheLastMonthは一日が表示されている４２個のセルのうち何番目か取得
     NSInteger restOfTheLastMonth = [[NSCalendar currentCalendar] ordinalityOfUnit:NSCalendarUnitDay
@@ -52,7 +45,6 @@ static NSUInteger const DaysPerWeek = 7;
     
     for (NSInteger i = 0; i < numberOfDaysInMonth; i++) {
         
-        
         NSDateComponents *nextComponents = [[NSDateComponents alloc]init];
         nextComponents.day = i - (restOfTheLastMonth - 1);
         
@@ -61,7 +53,6 @@ static NSUInteger const DaysPerWeek = 7;
                                                                          toDate:firstDateOfMonth
                                                                         options:0];
         
-        NSLog(@"nextDate: %@",aDate);
         NSInteger month = [[[NSCalendar currentCalendar] components:NSCalendarUnitMonth fromDate:date] month];
         
         //表示される一覧の月だけを取得->ここで表示される月のうち先月、今月、来月に分かれる
@@ -74,14 +65,13 @@ static NSUInteger const DaysPerWeek = 7;
     return calendars;
 }
 
-
 - (instancetype)initWithDate:(NSDate *)date isDifferentMonth:(BOOL)isDifferentMonth {
     if (self = [super init]) {
         self.aDate = date;
         
         //今月の日付 = 0 , それ以外の日付 = 1
         self.isDifferentMonth = isDifferentMonth;
-        NSLog(@"isDifferentMonthに値が入った！");
+        
     }
     return self;
 }

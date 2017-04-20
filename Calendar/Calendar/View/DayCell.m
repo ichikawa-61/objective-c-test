@@ -8,33 +8,17 @@
 
 #import "DayCell.h"
 #import "NSDate+Calendar.h"
-#import "NSString+Localizable.h"
+//#import "NSString+Localizable.h"
 
 @interface DayCell()
-
-//typedef NS_ENUM(NSInteger, DaysOfTheWeek){
-//    
-//    Saturday,
-//    Sunday,
-//    Monday,
-//    Tuesday,
-//    Wednesday,
-//    Thursday,
-//    Friday
-//    
-//};
-
 
 @end
 
 @implementation DayCell
 
-
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
 }
 
 
@@ -44,17 +28,10 @@
     dayFormat.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ja"];
     self.monthName = dayFormat.shortWeekdaySymbols;
     
-    
-    //return monthName;
 }
 
-
-
-
 -(void)setUpDaysOfWeek:(NSInteger)row{
-    //NSString *test = [self.monthName objectAtIndex:row];
     
-   // NSLog(@"ええええええ%@",test);
     self.dayLabel.text = [self.monthName objectAtIndex:row] ;
     
     switch (row) {
@@ -98,7 +75,6 @@
             self.dayLabel.textColor = [UIColor blackColor];
             break;
     }
-
     
 }
 

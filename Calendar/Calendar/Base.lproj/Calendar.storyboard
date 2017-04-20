@@ -22,11 +22,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bgz-oY-8ef">
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bgz-oY-8ef">
                                 <rect key="frame" x="31" y="72" width="344" height="551"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spS-ho-rGT">
-                                <rect key="frame" x="0.0" y="623" width="377" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spS-ho-rGT">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
                                 <items>
                                     <barButtonItem title="&lt;&lt;前へ" id="JRc-zI-TMY">
                                         <connections>
@@ -41,12 +42,9 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-N5-DBu">
-                                <rect key="frame" x="20" y="72" width="339" height="587"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3n3-N5-DBu">
+                                <rect key="frame" x="16" y="64" width="359" height="559"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="551" id="bdg-cf-PA5"/>
-                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uEq-pb-0yH">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -71,12 +69,13 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="bgz-oY-8ef" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="4Mh-rb-Klj"/>
-                            <constraint firstItem="bgz-oY-8ef" firstAttribute="bottom" secondItem="spS-ho-rGT" secondAttribute="top" id="Wd8-Ug-pYg"/>
-                            <constraint firstAttribute="bottom" secondItem="bgz-oY-8ef" secondAttribute="bottom" constant="44" id="j8m-3A-LFH"/>
-                            <constraint firstAttribute="trailing" secondItem="bgz-oY-8ef" secondAttribute="trailing" id="nPo-tQ-eMh"/>
-                            <constraint firstItem="bgz-oY-8ef" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="w9D-fn-ixj"/>
-                            <constraint firstItem="bgz-oY-8ef" firstAttribute="top" secondItem="3n3-N5-DBu" secondAttribute="top" id="xiJ-A9-ls0"/>
+                            <constraint firstItem="3n3-N5-DBu" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="8F8-2J-Mxf"/>
+                            <constraint firstItem="spS-ho-rGT" firstAttribute="top" secondItem="3n3-N5-DBu" secondAttribute="bottom" id="F8I-PQ-HUo"/>
+                            <constraint firstItem="spS-ho-rGT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="XCF-hX-46Z"/>
+                            <constraint firstItem="3n3-N5-DBu" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="cRd-0V-dZj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="spS-ho-rGT" secondAttribute="bottom" id="fjg-xy-ufK"/>
+                            <constraint firstAttribute="trailing" secondItem="spS-ho-rGT" secondAttribute="trailing" id="pcj-sw-ncm"/>
+                            <constraint firstItem="3n3-N5-DBu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qKb-2U-7D3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jdG-Hp-vW6"/>

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CalendarViewController.h"
+//#import "CalendarViewController.h"
 
 
 @interface CalendarLogic : NSObject
@@ -16,7 +16,6 @@
 
 @property (strong,nonatomic) NSDate *aDate;
 @property (assign, nonatomic) BOOL isDifferentMonth;
-
 
 + (NSArray<CalendarLogic*> *)calendarWithDate:(NSDate *)date;
 @property(nonatomic,strong) NSDate *referenceDate;

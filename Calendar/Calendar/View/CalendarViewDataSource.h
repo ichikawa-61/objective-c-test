@@ -11,19 +11,13 @@
 
 @interface CalendarViewDataSource : NSObject<UICollectionViewDataSource>
 
-
-//-(DayCell *)dateForCellAtIndexPath :(UICollectionView*)collectionView IndexPath:(NSIndexPath *)indexPath;
-//
-//-(DayCell *) weekOfDaysAtIndexPath:collectionView Index:indexPath;
 @property (strong,nonatomic) NSArray *calendars;
 
 typedef NS_ENUM(NSInteger, CalendarViewDataSourceSection) {
     CalendarViewWeekOfDays,
     CalendarViewDates,
-    CalendarViewNumberOfSecssion
-   
+    CalendarViewNumberOfSecssion   
 };
-
 
 - (instancetype) initWithCalendars:(NSArray<CalendarLogic *> *) calendars;
 
