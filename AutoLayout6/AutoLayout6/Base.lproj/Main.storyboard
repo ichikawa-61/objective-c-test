@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HpR-U5-fce">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.90576985723242254" blue="0.12265501517340605" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2im-z9-O5Q"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2U-FB-2oZ">
+                                <rect key="frame" x="0.0" y="517" width="375" height="50"/>
+                                <color key="backgroundColor" red="0.069919230124421361" green="0.15899588954504595" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7d-6e-VJ2">
+                                <rect key="frame" x="0.0" y="567" width="375" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.11116040169198826" blue="0.19728543056328918" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HpR-U5-fce" firstAttribute="height" secondItem="G2U-FB-2oZ" secondAttribute="height" id="37H-Wn-5wI"/>
+                            <constraint firstItem="Y7d-6e-VJ2" firstAttribute="top" secondItem="G2U-FB-2oZ" secondAttribute="bottom" id="6C4-2a-IVs"/>
+                            <constraint firstItem="HpR-U5-fce" firstAttribute="top" secondItem="Y7d-6e-VJ2" secondAttribute="bottom" id="CAi-WF-Zjg"/>
+                            <constraint firstItem="Y7d-6e-VJ2" firstAttribute="height" secondItem="G2U-FB-2oZ" secondAttribute="height" id="UKi-d2-jCt"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="HpR-U5-fce" secondAttribute="bottom" id="Vgi-h0-df9"/>
+                            <constraint firstAttribute="trailing" secondItem="G2U-FB-2oZ" secondAttribute="trailing" id="YBA-T2-3Qq"/>
+                            <constraint firstItem="HpR-U5-fce" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ZS8-hS-HlP"/>
+                            <constraint firstAttribute="trailing" secondItem="Y7d-6e-VJ2" secondAttribute="trailing" id="fN2-3C-eLl"/>
+                            <constraint firstItem="Y7d-6e-VJ2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="fVl-J0-pOD"/>
+                            <constraint firstAttribute="trailing" secondItem="HpR-U5-fce" secondAttribute="trailing" id="q2e-F2-8gq"/>
+                            <constraint firstItem="G2U-FB-2oZ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uca-rj-DSo"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="138.98050974512745"/>
+        </scene>
+    </scenes>
+</document>
