@@ -64,10 +64,10 @@
 		38AFB6651E9C3690005EB3B5 /* CalendarLogic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarLogic.m; sourceTree = "<group>"; };
 		38F6E0B11E9D1CBE00DD8BF4 /* CalendarViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewDataSource.h; sourceTree = "<group>"; };
 		38F6E0B21E9D1CBE00DD8BF4 /* CalendarViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewDataSource.m; sourceTree = "<group>"; };
-		38F6E0BD1E9F355400DD8BF4 /* NSString+Localizable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Localizable.h"; path = "Calendar/NSString+Localizable.h"; sourceTree = "<group>"; };
-		38F6E0BE1E9F355400DD8BF4 /* NSString+Localizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Localizable.m"; path = "Calendar/NSString+Localizable.m"; sourceTree = "<group>"; };
-		38F6E0C01E9F35BF00DD8BF4 /* NSDate+Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDate+Calendar.h"; path = "Calendar/NSDate+Calendar.h"; sourceTree = "<group>"; };
-		38F6E0C11E9F35BF00DD8BF4 /* NSDate+Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Calendar.m"; path = "Calendar/NSDate+Calendar.m"; sourceTree = "<group>"; };
+		38F6E0BD1E9F355400DD8BF4 /* NSString+Localizable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Localizable.h"; sourceTree = "<group>"; };
+		38F6E0BE1E9F355400DD8BF4 /* NSString+Localizable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Localizable.m"; sourceTree = "<group>"; };
+		38F6E0C01E9F35BF00DD8BF4 /* NSDate+Calendar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Calendar.h"; sourceTree = "<group>"; };
+		38F6E0C11E9F35BF00DD8BF4 /* NSDate+Calendar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Calendar.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,13 +95,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38AFB3551EA8B8D90023387A /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				38AFB6311E9B0A8C005EB3B5 /* Main.storyboard */,
+			);
+			name = Storyboard;
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		38AFB3561EA8B8E70023387A /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				38AFB62E1E9B0A8C005EB3B5 /* CalendarViewController.h */,
+				38AFB62F1E9B0A8C005EB3B5 /* CalendarViewController.m */,
+			);
+			name = ViewController;
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		38AFB3571EA8B8F80023387A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38F6E0B11E9D1CBE00DD8BF4 /* CalendarViewDataSource.h */,
+				38F6E0B21E9D1CBE00DD8BF4 /* CalendarViewDataSource.m */,
+				38AFB65B1E9B0C7A005EB3B5 /* DayCell.h */,
+				38AFB65C1E9B0C7A005EB3B5 /* DayCell.m */,
+				38AFB65D1E9B0C7A005EB3B5 /* DayCell.xib */,
+			);
+			name = View;
+			path = View;
+			sourceTree = "<group>";
+		};
+		38AFB3581EA8B9070023387A /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				38AFB62B1E9B0A8C005EB3B5 /* AppDelegate.h */,
+				38AFB62C1E9B0A8C005EB3B5 /* AppDelegate.m */,
+				38AFB6361E9B0A8C005EB3B5 /* LaunchScreen.storyboard */,
+			);
+			name = Other;
+			path = Other;
+			sourceTree = "<group>";
+		};
+		38AFB3591EA8B91B0023387A /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				38F6E0C01E9F35BF00DD8BF4 /* NSDate+Calendar.h */,
+				38F6E0C11E9F35BF00DD8BF4 /* NSDate+Calendar.m */,
+				38F6E0BD1E9F355400DD8BF4 /* NSString+Localizable.h */,
+				38F6E0BE1E9F355400DD8BF4 /* NSString+Localizable.m */,
+			);
+			name = Category;
+			path = Category;
+			sourceTree = "<group>";
+		};
 		38AFB61C1E9B0A8C005EB3B5 = {
 			isa = PBXGroup;
 			children = (
-				38F6E0BD1E9F355400DD8BF4 /* NSString+Localizable.h */,
-				38F6E0BE1E9F355400DD8BF4 /* NSString+Localizable.m */,
-				38F6E0C01E9F35BF00DD8BF4 /* NSDate+Calendar.h */,
-				38F6E0C11E9F35BF00DD8BF4 /* NSDate+Calendar.m */,
 				38AFB6271E9B0A8C005EB3B5 /* Calendar */,
 				38AFB6411E9B0A8C005EB3B5 /* CalendarTests */,
 				38AFB64C1E9B0A8C005EB3B5 /* CalendarUITests */,
@@ -122,21 +173,15 @@
 		38AFB6271E9B0A8C005EB3B5 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				38AFB62B1E9B0A8C005EB3B5 /* AppDelegate.h */,
-				38AFB62C1E9B0A8C005EB3B5 /* AppDelegate.m */,
+				38AFB3591EA8B91B0023387A /* Category */,
 				38AFB66A1E9C758C005EB3B5 /* Model */,
-				38AFB62E1E9B0A8C005EB3B5 /* CalendarViewController.h */,
-				38AFB62F1E9B0A8C005EB3B5 /* CalendarViewController.m */,
-				38AFB6311E9B0A8C005EB3B5 /* Main.storyboard */,
-				38F6E0B11E9D1CBE00DD8BF4 /* CalendarViewDataSource.h */,
-				38F6E0B21E9D1CBE00DD8BF4 /* CalendarViewDataSource.m */,
-				38AFB65B1E9B0C7A005EB3B5 /* DayCell.h */,
-				38AFB65C1E9B0C7A005EB3B5 /* DayCell.m */,
-				38AFB65D1E9B0C7A005EB3B5 /* DayCell.xib */,
-				38AFB6341E9B0A8C005EB3B5 /* Assets.xcassets */,
-				38AFB6361E9B0A8C005EB3B5 /* LaunchScreen.storyboard */,
-				38AFB6391E9B0A8C005EB3B5 /* Info.plist */,
+				38AFB3581EA8B9070023387A /* Other */,
+				38AFB3551EA8B8D90023387A /* Storyboard */,
 				38AFB6281E9B0A8C005EB3B5 /* Supporting Files */,
+				38AFB3571EA8B8F80023387A /* View */,
+				38AFB3561EA8B8E70023387A /* ViewController */,
+				38AFB6341E9B0A8C005EB3B5 /* Assets.xcassets */,
+				38AFB6391E9B0A8C005EB3B5 /* Info.plist */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -147,6 +192,7 @@
 				38AFB6291E9B0A8C005EB3B5 /* main.m */,
 			);
 			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		38AFB6411E9B0A8C005EB3B5 /* CalendarTests */ = {
@@ -174,6 +220,7 @@
 				38AFB6651E9C3690005EB3B5 /* CalendarLogic.m */,
 			);
 			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -360,6 +407,7 @@
 				38AFB6321E9B0A8C005EB3B5 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		38AFB6361E9B0A8C005EB3B5 /* LaunchScreen.storyboard */ = {
@@ -368,6 +416,7 @@
 				38AFB6371E9B0A8C005EB3B5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
