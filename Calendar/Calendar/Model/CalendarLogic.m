@@ -30,12 +30,20 @@ static NSUInteger const DaysPerWeek = 7;
     //受け取った日付の入った月を要素ごとに分ける。
     NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:date];
     
+//    NSLog(@"%ld",components.day);
+//    NSLog(@"%ld",components.month);
+//    NSLog(@"%ld",components.year);
+    
+    
     components.day = 1;
+    
     
     NSDate *firstDateOfMonth = [[NSCalendar currentCalendar] dateFromComponents:components];
     
     
     NSInteger numberOfWeeks = [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitWeekOfMonth inUnit:NSCalendarUnitMonth forDate:firstDateOfMonth].length;
+    
+    
     
     
     NSInteger numberOfDaysInMonth = numberOfWeeks * DaysPerWeek;

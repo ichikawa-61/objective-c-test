@@ -1,0 +1,7 @@
+<script src="<?= $URL_SITE_ROOT ?>/js/jquery.js"></script>
+<script src="<?= $URL_SITE_ROOT ?>/js/price-range.js"></script>
+<script src="<?= $URL_SITE_ROOT ?>/js/jquery.scrollUp.min.js"></script>
+<script src="<?= $URL_SITE_ROOT ?>/js/bootstrap.min.js"></script>
+<script src="<?= $URL_SITE_ROOT ?>/js/jquery.prettyPhoto.js"></script>
+<script src="<?= $URL_SITE_ROOT ?>/js/main.js"></script>
+<script src="<?= $URL_SITE_ROOT ?>/js/resister_category.js"></script>
